@@ -1,0 +1,26 @@
+# OS / user files
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.lesshst
+.cache/
+.ssh/
+.sudo_as_admin_successful
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Env / secrets
+.env
+.env.*
+.aws/
+
+# Node / frontend
+node_modules/
+
+# Docker
+*.pid
