@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="logo-container-left">
+    <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="logo-large" onclick="window.location.href='/'">
+  </div>
+  <ul>
+    <li><a href="/about_page">About</a></li>
+    <li><a href="/register_page">Register</a></li>
+    <li><a href="/">Login</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <div class="glass-container admin-dashboard-container">
+      <h2>Admin Dashboard</h2>
+      <p>Welcome, <span id="adminName"></span> (Admin)</p>
+
+      <h3>User Management</h3>
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Active</th>
+            <th>Failed Attempts</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically with admin_script.js -->
+        </tbody>
+      </table>
+
+      <button id="logoutBtn" class="btn">Logout</button>
+    </div>
+  </div>
+
+  <!-- Attach Script -->
+  <script src="{{ url_for('static', filename='admin_script.js') }}"></script>
+</body>
+</html>

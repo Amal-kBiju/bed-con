@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="logo-container-left">
+    <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="logo-large" onclick="window.location.href='/'">
+  </div>
+  <ul>
+    <li><a href="/about_page">About</a></li>
+    <li><a href="/register_page">Register</a></li>
+    <li><a href="/">Login</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <div class="glass-container dashboard-container">
+      <h2>Welcome, <span id="username"></span>!</h2>
+      <p>You are logged in as <span id="userRole"></span>.</p>
+      <p class="info-text">Your session is secure and currently active.  
+         Please use the navigation bar above to explore other sections.</p>
+
+      <button id="logoutBtn" class="btn">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    // Populate user data from sessionStorage
+    const username = sessionStorage.getItem("username") || "User";
+    const role = sessionStorage.getItem("role") || "user";
+
+    document.getElementById("username").innerText = username;
+    document.getElementById("userRole").innerText = role;
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      sessionStorage.clear();
+      window.location.href = "/";
+    });
+  </script>
+</body>
+</html>
